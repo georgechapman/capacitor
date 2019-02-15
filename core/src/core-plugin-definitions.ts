@@ -7,6 +7,7 @@ declare global {
     BackgroundTask?: BackgroundTaskPlugin;
     Browser?: BrowserPlugin;
     Camera?: CameraPlugin;
+    CameraPreview?: CameraPreviewPlugin;
     Clipboard?: ClipboardPlugin;
     Device?: DevicePlugin;
     Filesystem?: FilesystemPlugin;
@@ -261,6 +262,55 @@ export interface CameraPlugin extends Plugin {
 }
 
 export interface CameraOptions {
+  /**
+   * The quality of image to return as JPEG, from 0-100
+   */
+  quality?: number;
+  /**
+   * Whether to allow the user to crop or make small edits (platform specific)
+   */
+  allowEditing?: boolean;
+  /**
+   * How the data should be returned. Currently, only 'base64' or 'uri' is supported
+   */
+  resultType: CameraResultType;
+  /**
+   * Whether to save the photo to the gallery/photostream
+   */
+  saveToGallery?: boolean;
+  /**
+   * The width of the saved image
+   */
+  width?: number;
+  /**
+   * The height of the saved image
+   */
+  height?: number;
+  /**
+   * Whether to automatically rotate the image "up" to correct for orientation
+   * in portrait mode
+   * Default: true
+   */
+  correctOrientation?: boolean;
+  /**
+   * The source to get the photo from. By default this prompts the user to select
+   * either the photo album or take a photo.
+   * Default: CameraSource.Prompt
+   */
+  source?: CameraSource;
+  /**
+   * iOS only: The default camera direction. By default the rear camera.
+   * Default: CameraDirection.Rear
+   */
+  direction?: CameraDirection;
+
+  /**
+   * iOS only: The presentation style of the Camera. Defaults to fullscreen.
+   */
+  presentationStyle?: 'fullscreen' | 'popover';
+}
+
+export interface CameraPreviewOptions {
   /**
    * The quality of image to return as JPEG, from 0-100
    */
