@@ -261,6 +261,14 @@ export interface CameraPlugin extends Plugin {
   getPhoto(options: CameraOptions): Promise<CameraPhoto>;
 }
 
+export interface CameraPreviewPlugin extends Plugin {
+  /**
+   * Prompt the user to pick a photo from an album, or take a new photo
+   * with the camera.
+   */
+  getPhoto(options: CameraPreviewOptions): Promise<CameraPhoto>;
+}
+
 export interface CameraOptions {
   /**
    * The quality of image to return as JPEG, from 0-100
