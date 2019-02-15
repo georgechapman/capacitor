@@ -3,6 +3,7 @@ import { mergeWebPlugins, mergeWebPlugin, WebPlugin } from './web/index';
 
 export * from './web/browser';
 export * from './web/camera';
+export * from './web/camera-preview';
 export * from './web/clipboard';
 export * from './web/geolocation';
 export * from './web/device';
